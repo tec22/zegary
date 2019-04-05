@@ -1,0 +1,125 @@
+<DOCTYPE html></DOCTYPE>
+<html lang="en">
+
+<head>
+    <merta charset="UTF-8">
+        <tlitle>Document</tlitle>
+        <style>
+            body {
+                background-color: black;
+                background-image: url(Przechwytywanie2.PNG);
+                background-repeat: no-repeat;
+                background-size: 60%;
+            }
+
+            #container {
+                background-color: white;
+                width: 1200px;
+                border: 2px solid white;
+                border-radius: 20px;
+                text-align: center;
+
+            }
+
+            #zegar,
+            #do1,
+            #do2 {
+                border: solid 2px white;
+                padding: 20px;
+                width: 200px;
+                border-radius: 20px;
+                box-show: 10px 10px 10px 0px rgba(0, 0, 0, 0, 4);
+                margin: auto;
+                margin-top: 30px;
+                
+            }
+            section
+            {
+                float: left;
+                width: 45%;
+            
+            }
+            footer{
+                margin: 20px;
+                background-color: chartreuse; 
+                padding: 20px;
+                widows: 100%
+                    
+                position: absolute;
+               bottom: 50px;
+                
+            }
+            
+            header{
+                background-color: aqua; 
+                padding: 30px;
+            } 
+
+        </style>
+        <script>
+            let data1 = new Date(2019, 2, 29, 30, 0, 0, 0);
+            let data2 = new Date(2019, 2, 29, 19, 0, 0, 0);
+
+            function IleZostalo(dataK, id) {
+                let dzisiaj = new Date();
+                let doDaty = dataK - dzisiaj;
+                let s = doDaty / 1000;
+                let min = s / 60;
+                let h = min / 60;
+                let d = h / 24;
+
+                let ss = Math.floor(s % 60);
+                let mm = Math.floor(min % 60);
+                let hh = Math.floor(h % 24);
+                var dd = Math.floor(d);
+
+
+                document.getElementById(id).innerHTML = dd + " : " + hh + " : " + mm + " : " + ss;
+            }
+
+            function odliczanie() {
+                let dzisiaj = new Date();
+                let dzien = dzisiaj.getDate();
+                let mc = dzisiaj.getMonth() + 1;
+                let rok = dzisiaj.getFullYear();
+                let godz = dzisiaj.getHours();
+                let min = dzisiaj.getMinutes();
+                let sek = dzisiaj.getSeconds();
+                let milisek = dzisiaj.getMilliseconds();
+
+
+                document.getElementById("zegary").innerHTML = dzien + "/" + mc + "/" + rok + " &nbsp;&nbsp;  " + godz + ":" + min + ":" + sek;
+                IleZostalo(data1, "do1");
+                IleZostalo(data2, "do2");
+
+
+                setTimeout("odliczanie()", 1000)
+
+            }
+ 
+        22222
+        </script>
+        </head>
+
+<body onload="odliczanie();">
+    <div id="container">
+         
+        <header>
+            
+                  
+        <h1>Zegary</h1>
+        <div id="zegary"></div>
+            </header>
+            <section>
+                <div id="do1"></div>
+            </section>
+        
+        <div id="do1"></div>
+        
+        <div id="do2"></div> 
+        
+    </div>
+    
+</body>
+
+</html>
